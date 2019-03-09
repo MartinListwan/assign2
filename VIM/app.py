@@ -1,5 +1,6 @@
 import os
-from flask import Flask, send_from_directory, render_template, redirect
+import json
+from flask import Flask, send_from_directory, render_template, redirect, request
 from flask_login import LoginManager, login_required, logout_user
 
 app = Flask(__name__, static_folder='build')
@@ -16,9 +17,13 @@ def serve(path):
     else:
         return send_from_directory('build', 'index.html')
 
-@app.route('/login')
+@app.route('/login', methods=['GET', 'POST'])
 def login():
-    return render_template('login.html')
+    if request.method == 'POST':
+        print(request.form.to_dict())
+        return redirect(next or flask.url_for('index'))
+    if request.method == 'GET':
+        return render_template('login.html')
 
 @app.route('/logout')
 @login_required
