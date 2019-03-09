@@ -1,11 +1,7 @@
-export default {
-    
-}
-
-
-
-const fetchInfoReducer = createReducer(
+const reducer = createReducer(
     {
     },
 )
+
+export default reducer
 
