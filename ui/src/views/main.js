@@ -1,8 +1,9 @@
 import React from 'react'
+import { Success } from '../components'
 
 const Main = () => (
     <div>
-        Does this build?
+        <Success />
     </div>
 )
 
