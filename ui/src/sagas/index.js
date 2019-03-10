@@ -23,12 +23,10 @@ export default function* watchMainActions() {
 }
 
 
-export function* postVMCreate() {
+export function* postVMCreate({ params }) {
     const args = { 
-        path: '/post', 
-        params: {
-            'param1': 'param1'
-        },
+        path: '/post',
+        params,
     }
     const { response, error } = yield call(api.postHelper, args)
     if (response) {
@@ -38,30 +36,30 @@ export function* postVMCreate() {
     }
 }
 
-export function* postVMStart() {
+export function* postVMStart({ params }) {
     
 }
 
-export function* postVMStop() {
+export function* postVMStop({ params }) {
 
 }
 
-export function* postVMDelete() {
+export function* postVMDelete({ params }) {
 
 }
 
-export function* postVMUpgrade() {
+export function* postVMUpgrade({ params }) {
 
 }
 
-export function* postVMDowngrade() {
+export function* postVMDowngrade({ params }) {
 
 }
 
-export function* getVMUsage() {
+export function* getVMUsage({ params }) {
 
 }
 
-export function* getVMCharges() {
+export function* getVMCharges({ params }) {
 
 }

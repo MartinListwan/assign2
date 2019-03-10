@@ -1,1 +1,1 @@
-export { SuccessContainer as Success } from './success'
+export { CreateVMContainer as CreateVM } from './CreateVM'

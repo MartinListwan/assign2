@@ -1,9 +1,12 @@
 import React from 'react'
-import { Success } from '../components'
+import { CreateVM } from '../components'
+import './main.css'
 
 const Main = () => (
-    <div>
-        <Success />
+    <div className={'main_bg'}>
+        <div>
+            <CreateVM />
+        </div>
     </div>
 )
 

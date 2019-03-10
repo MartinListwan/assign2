@@ -12,12 +12,12 @@ import {
 import { createReducer } from '../utils'  
 
 const initialState = {
-    received: 'not posting',
+    createLoading: false,
 }
 
 const actionHandlers = {
-    [vmCreate.request]: (state) => R.assoc('received', 'loading', state),
-    [vmCreate.success]: (state) => R.assoc('received', 'was received', state),
+    [vmCreate.request]: (state) => R.assoc('createLoading', true, state),
+    [vmCreate.success]: (state) => R.assoc('createLoading', false, state),
 }
 
 const rootReducer = createReducer(initialState, actionHandlers)
