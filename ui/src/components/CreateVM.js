@@ -37,7 +37,6 @@ export class CreateVMComponent extends Component  {
             </Card>
         )
     }
-
 }
 
 const mapStateToProps = createStructuredSelector({

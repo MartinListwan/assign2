@@ -11,8 +11,8 @@ export function postHelper({ path, params }) {
     .catch(error => ({ error }))
 }
 
-export function getHelper({ path }) {
-    return instance.get(path)
+export function getHelper({ path, params }) {
+    return instance.get(path, { params })
     .then(response => ({ response }))
     .catch(error => ({ error }))
 }

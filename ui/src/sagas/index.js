@@ -57,9 +57,27 @@ export function* postVMDowngrade({ params }) {
 }
 
 export function* getVMUsage({ params }) {
-
+    const args = { 
+        path: '/get',
+        params,
+    }
+    const { response, error } = yield call(api.getHelper, args)
+    if (response) {
+        yield put({ type: vmUsage.success, payload: response })
+    } else {
+        yield put({ type: vmUsage.failure, error: error })
+    }
 }
 
 export function* getVMCharges({ params }) {
-
+   const args = { 
+        path: '/get',
+        params,
+    }
+    const { response, error } = yield call(api.getHelper, args)
+    if (response) {
+        yield put({ type: vmCharges.success, payload: response })
+    } else {
+        yield put({ type: vmCharges.failure, error: error })
+    }
 }
