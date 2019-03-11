@@ -202,4 +202,3 @@ class DbFunctions:
 
 
 DbFunctions = DbFunctions()
-print(DbFunctions.get_all_events_from_certain_vm(20)) 
