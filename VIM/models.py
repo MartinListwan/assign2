@@ -64,8 +64,8 @@ class DbFunctions:
         r.inserted_primary_key
         print("created ne vm")
 
-    # Returns the vms that were created by the user
-    def all_vms_by_user(self, userid):
+    # Returns the vms that were created by the user and are active
+    def all_active_vms_by_user(self, userid):
         connection = self.engine.connect()
         result = connection.execute("SELECT DISTINCT * FROM events WHERE events.user_id = %s ORDER BY timestamp DESC" % userid).fetchall()
         current_user_vms = []
@@ -78,6 +78,21 @@ class DbFunctions:
 
         connection.close()
         return current_user_vms
+
+    def get_all_events_from_certain_user(self, userid):
+        connection = self.engine.connect()
+        result = connection.execute("SELECT * FROM events WHERE events.user_id = %s ORDER BY timestamp DESC" % userid).fetchall()
+
+        connection.close()
+        return result
+
+    def get_all_events_from_certain_vm(self, vm_id):
+        connection = self.engine.connect()
+        result = connection.execute(
+            "SELECT * FROM events WHERE events.vm_id = %s ORDER BY timestamp DESC" % vm_id).fetchall()
+
+        connection.close()
+        return result
 
     # Inserts a new row in the DB with the UPGRADE event type and scales configuration
     def upgrade_vm_configuration(self, vm_id):
@@ -187,3 +202,4 @@ class DbFunctions:
 
 
 DbFunctions = DbFunctions()
+print(DbFunctions.get_all_events_from_certain_vm(20)) 
