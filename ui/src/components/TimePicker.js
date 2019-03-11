@@ -1,7 +1,9 @@
 import React, { Component } from 'react'
 import { vmUsage, vmCharges } from '../actions';
+import { createStructuredSelector } from 'reselect'
 import { connect } from 'react-redux'
 import { Card, Button, TimePicker, DatePicker } from 'antd'
+import { selectTotalCost } from '../selectors'
 import moment from 'moment'
 
 const { RangePicker } = DatePicker
@@ -73,6 +75,9 @@ export class TimePickerComponent extends Component  {
                 >
                     Get Total Cost
                 </Button>
+                <div>
+                    {this.props.cost && `Total cost: $${this.props.cost}`}
+                </div>
             </Card>
         )
     }
@@ -91,7 +96,11 @@ const mapDispatchToProps = dispatch => {
     }
 }
 
+const mapStateToProps = createStructuredSelector({
+    cost: selectTotalCost,
+})
+
 export const TimePickerContainer = connect(
-    null,
+    mapStateToProps,
     mapDispatchToProps,
 )(TimePickerComponent)

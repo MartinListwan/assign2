@@ -1,5 +1,5 @@
 import React from 'react'
-import { CreateVM, TimePicker } from '../components'
+import { CreateVM, TimePicker, VMTable } from '../components'
 import './main.css'
 
 const Main = () => (
@@ -7,6 +7,7 @@ const Main = () => (
         <div>
             <CreateVM />
             <TimePicker />
+            <VMTable />
         </div>
     </div>
 )

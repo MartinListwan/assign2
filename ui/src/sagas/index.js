@@ -37,23 +37,68 @@ export function* postVMCreate({ params }) {
 }
 
 export function* postVMStart({ params }) {
-    
+    const args = { 
+        path: '/post',
+        params,
+    }
+    const { response, error } = yield call(api.postHelper, args)
+    if (response) {
+        yield put({ type: vmStart.success, payload: response })
+    } else {
+        yield put({ type: vmStart.failure, error: error })
+    }
 }
 
 export function* postVMStop({ params }) {
-
+    const args = { 
+        path: '/post',
+        params,
+    }
+    const { response, error } = yield call(api.postHelper, args)
+    if (response) {
+        yield put({ type: vmStop.success, payload: response })
+    } else {
+        yield put({ type: vmStop.failure, error: error })
+    }
 }
 
 export function* postVMDelete({ params }) {
-
+    const args = { 
+        path: '/post',
+        params,
+    }
+    const { response, error } = yield call(api.postHelper, args)
+    if (response) {
+        yield put({ type: vmDelete.success, payload: response })
+    } else {
+        yield put({ type: vmDelete.failure, error: error })
+    }
 }
 
 export function* postVMUpgrade({ params }) {
-
+    const args = { 
+        path: '/post',
+        params,
+    }
+    const { response, error } = yield call(api.postHelper, args)
+    if (response) {
+        yield put({ type: vmUpgrade.success, payload: response })
+    } else {
+        yield put({ type: vmUpgrade.failure, error: error })
+    }
 }
 
 export function* postVMDowngrade({ params }) {
-
+    const args = { 
+        path: '/post',
+        params,
+    }
+    const { response, error } = yield call(api.postHelper, args)
+    if (response) {
+        yield put({ type: vmDowngrade.success, payload: response })
+    } else {
+        yield put({ type: vmDowngrade.failure, error: error })
+    }
 }
 
 export function* getVMUsage({ params }) {
@@ -76,7 +121,7 @@ export function* getVMCharges({ params }) {
     }
     const { response, error } = yield call(api.getHelper, args)
     if (response) {
-        yield put({ type: vmCharges.success, payload: response })
+        yield put({ type: vmCharges.success, payload: 10 })
     } else {
         yield put({ type: vmCharges.failure, error: error })
     }
