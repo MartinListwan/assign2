@@ -25,7 +25,7 @@ export default function* watchMainActions() {
 
 export function* postVMCreate({ params }) {
     const args = { 
-        path: '/post',
+        path: '/createVM',
         params,
     }
     const { response, error } = yield call(api.postHelper, args)
@@ -38,7 +38,7 @@ export function* postVMCreate({ params }) {
 
 export function* postVMStart({ params }) {
     const args = { 
-        path: '/post',
+        path: '/startVM',
         params,
     }
     const { response, error } = yield call(api.postHelper, args)
@@ -51,7 +51,7 @@ export function* postVMStart({ params }) {
 
 export function* postVMStop({ params }) {
     const args = { 
-        path: '/post',
+        path: '/stopVM',
         params,
     }
     const { response, error } = yield call(api.postHelper, args)
@@ -64,7 +64,7 @@ export function* postVMStop({ params }) {
 
 export function* postVMDelete({ params }) {
     const args = { 
-        path: '/post',
+        path: '/deleteVM',
         params,
     }
     const { response, error } = yield call(api.postHelper, args)
@@ -77,7 +77,7 @@ export function* postVMDelete({ params }) {
 
 export function* postVMUpgrade({ params }) {
     const args = { 
-        path: '/post',
+        path: '/upgradeVM',
         params,
     }
     const { response, error } = yield call(api.postHelper, args)
@@ -90,7 +90,7 @@ export function* postVMUpgrade({ params }) {
 
 export function* postVMDowngrade({ params }) {
     const args = { 
-        path: '/post',
+        path: '/downgradeVM',
         params,
     }
     const { response, error } = yield call(api.postHelper, args)
@@ -103,7 +103,7 @@ export function* postVMDowngrade({ params }) {
 
 export function* getVMUsage({ params }) {
     const args = { 
-        path: '/get',
+        path: '/totalUsageVM',
         params,
     }
     const { response, error } = yield call(api.getHelper, args)
@@ -116,12 +116,12 @@ export function* getVMUsage({ params }) {
 
 export function* getVMCharges({ params }) {
    const args = { 
-        path: '/get',
+        path: '/totalUsageVM',
         params,
     }
     const { response, error } = yield call(api.getHelper, args)
     if (response) {
-        yield put({ type: vmCharges.success, payload: 10 })
+        yield put({ type: vmCharges.success, payload: response })
     } else {
         yield put({ type: vmCharges.failure, error: error })
     }

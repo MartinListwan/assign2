@@ -13,10 +13,7 @@ import { createReducer } from '../utils'
 
 const initialState = {
     createLoading: false,
-    vmList: [
-        {ID: 1, cost: 10},
-        {ID: 2, cost: 20},
-    ],
+    vmList: [],
     cost: undefined,
 }
 
